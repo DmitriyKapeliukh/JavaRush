@@ -9,19 +9,14 @@ import java.io.*;
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String source = reader.readLine();
-        FileInputStream inputStream = new FileInputStream(source);
+        InputStream inputStream = new FileInputStream(reader.readLine());
 
-        String file = "";
         while (inputStream.available()>0){
-            file += (char)inputStream.read();
-
-            //System.out.print((char)inputStream.read());
+            System.out.print((char)inputStream.read());
         }
-        System.out.print(file);
 
-        reader.close();
         inputStream.close();
+        reader.close();
 
 
     }
