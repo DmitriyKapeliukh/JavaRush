@@ -8,31 +8,30 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            BufferedReader readfile = new BufferedReader(new InputStreamReader(new FileInputStream(reader.readLine())));
-
-
+            Scanner readfile = new Scanner(new FileInputStream(reader.readLine()));
             List<Integer> list = new ArrayList<>();
 
             String num = "";
 
-            while ((num = readfile.readLine()) != null) {
-                int number = Integer.parseInt(num);
+            while (readfile.hasNext()) {
+                int number = readfile.nextInt();
                 if (number % 2 == 0) {
                     list.add(number);
                 }
             }
             readfile.close();
-            reader.close();
 
             Collections.sort(list);
             for (int x : list) {
                 System.out.println(x);
             }
+            reader.close();
         } catch (IOException e){
             e.printStackTrace();
         }
